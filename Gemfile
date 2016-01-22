@@ -25,6 +25,7 @@ end
 gem 'bootstrap-sass'
 gem 'bootstrap_form'
 gem 'bootswatch-rails'
+gem 'devise'
 gem 'masonry-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
