@@ -27,7 +27,8 @@ gem 'bootstrap_form'
 gem 'bootswatch-rails'
 gem 'devise'
 gem 'masonry-rails'
-gem 'devise'
+gem 'omniauth-facebook'
+gem 'figaro', '1.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
