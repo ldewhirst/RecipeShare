@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
+  resources :recipes
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  get 'welcome/about'
-
-  get 'welcome/index'
+  get 'about' => 'welcome#about'
 
   root 'welcome#index'
 

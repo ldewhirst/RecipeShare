@@ -1,0 +1,11 @@
+<h1>All Recipes</h1>
+
+<% @recipes.each do |recipe| %>
+  <div class="media">
+    <div class="media-body">
+      <h4 class="media-heading">
+        <%= link_to recipe.title, recipe %>
+      </h4>
+    </div>
+  </div>
+<% end %>
