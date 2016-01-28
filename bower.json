@@ -1,0 +1,22 @@
+{
+  "name": "recipeshare",
+  "homepage": "https://github.com/ldewhirst/recipeshare",
+  "authors": [
+    "Lindsay Dewhirst <lindsay.dewhirst@gmail.com>"
+  ],
+  "description": "A recipe sharing app",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "^3.3.6"
+  }
+}
