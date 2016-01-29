@@ -29,7 +29,6 @@ gem 'devise'
 gem 'masonry-rails'
 gem 'omniauth-facebook'
 gem 'figaro', '1.0'
-gem 'bootstrap-wysihtml5-rails'
 gem 'simple_form'
 gem 'bootsy'
 # Use SCSS for stylesheets
