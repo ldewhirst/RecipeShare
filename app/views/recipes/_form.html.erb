@@ -1,6 +1,15 @@
-
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap-wysihtml5.css">
+<!DOCTYPE html>
+  <html>
+    <header>
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="css/bootstrap-wysihtml5.css">
+      <script src="lib/js/wysihtml5-0.3.0_rc3.js"></script>
+      <script src="lib/js/jquery-1.7.1.min.js"></script>
+      <script src="lib/js/prettify.js"></script>
+      <script src="lib/js/bootstrap.min.js"></script>
+      <script src="src/bootstrap-wysihtml5.js"></script>
+    </header>
+    <body>
 
 <%= simple_form_for @recipe do |f| %>
   <% if recipe.errors.any? %>
@@ -17,6 +26,9 @@
   <%= form_group_tag(recipe.errors[:title]) do %>
     <%= f.input :title, label: "Enter recipe name", error: "Recipe name required" %>
   <% end %>
+
   <%= f.input :body, label:  "Enter recipe details", input_html: { class: 'wysihtml5' } %>
     <%= f.button :submit, "Save Recipe", class: 'btn btn-success' %>
 <% end %>
+</body>
+</html>

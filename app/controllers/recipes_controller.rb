@@ -1,6 +1,8 @@
 class RecipesController < ApplicationController
+  before_action :require_sign_in, except: [:index, :show]
+
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.all.order_by_recently_created
   end
 
   def show
@@ -9,12 +11,12 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @users = User.all
   end
 
   def create
-    @recipe = Recipe.new
-    @recipe.title = params[:recipe][:title]
-    @recipe.body = params[:recipe][:body]
+    @recipe = Recipe.new(recipe_params)
+    @recipe.user_id = current_user.id
 
     if @recipe.save
       flash[:notice] = "Recipe saved!"
@@ -27,14 +29,14 @@ class RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
+    @users = User.all
   end
 
   def update
     @recipe = Recipe.find(params[:id])
-    @recipe.title = params[:recipe][:title]
-    @recipe.body = params[:recipe][:body]
+    @recipe.assign_attributes(post_params)
 
-    if @recipe.save
+    if @recipe.update_attributes(recipe_params)
       flash[:notice] = "Recipe updated!"
       redirect_to @recipe
     else
@@ -54,4 +56,11 @@ class RecipesController < ApplicationController
       render :show
     end
   end
+
+  private
+
+  def recipe_params
+    params.require(:recipe).permit(:title, :body)
+  end
+
 end

@@ -10,4 +10,6 @@
   </div>
 <% end %>
 
+<% if current_user %>
 <%= link_to "New Recipe", new_recipe_path, class: 'btn btn-default' %>
+<% end %>

@@ -5,6 +5,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
          :omniauth_providers => [:facebook]
 
+  has_many :recipes
+
+  before_save { self.email = email.downcase }
+  before_save { self.role ||= :member }
+
+  enum role: [:member, :admin]
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
@@ -21,8 +27,5 @@ class User < ActiveRecord::Base
     end
   end
 
-  def avatar_url(user)
-     gravatar_id = Digest::MD5::hexdigest(user.email).downcase
-     "http://gravatar.com/avatar/#{gravatar_id}.png?s=48"
-   end
+
 end
