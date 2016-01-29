@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
          :omniauth_providers => [:facebook]
 
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
       user.email = auth.info.email
@@ -19,4 +20,9 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+  def avatar_url(user)
+     gravatar_id = Digest::MD5::hexdigest(user.email).downcase
+     "http://gravatar.com/avatar/#{gravatar_id}.png?s=48"
+   end
 end
