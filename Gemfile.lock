@@ -51,8 +51,17 @@ GEM
     bootstrap_form (2.3.0)
     bootswatch-rails (3.3.5)
       railties (>= 3.1)
+    bootsy (2.2.1)
+      carrierwave (~> 0.10)
+      mini_magick (~> 4.3)
+      remotipart (~> 1.2)
     builder (3.2.2)
     byebug (8.2.1)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.1.x)
@@ -95,6 +104,7 @@ GEM
     masonry-rails (0.2.4)
       railties
     mime-types (2.99)
+    mini_magick (4.3.6)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
     multi_json (1.11.2)
@@ -153,6 +163,7 @@ GEM
     rake (10.5.0)
     rdoc (4.2.1)
       json (~> 1.4)
+    remotipart (1.2.1)
     responders (2.1.1)
       railties (>= 4.2.0, < 5.1)
     sass (3.4.21)
@@ -204,6 +215,7 @@ DEPENDENCIES
   bootstrap-wysihtml5-rails
   bootstrap_form
   bootswatch-rails
+  bootsy
   byebug
   coffee-rails (~> 4.1.0)
   devise

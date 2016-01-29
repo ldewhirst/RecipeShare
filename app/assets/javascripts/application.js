@@ -12,14 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootsy
 //= require masonry/jquery.masonry
 //= require turbolinks
 //= require bootstrap
-//= require bootstrap-wysihtml5
 //= require_tree .
-
-$(document).ready(function(){
-  $('.wysihtml5').each(function(i, elem) {
-    $(elem).wysihtml5();
-  });
-})

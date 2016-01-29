@@ -34,7 +34,7 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find(params[:id])
-    @recipe.assign_attributes(post_params)
+    @recipe.assign_attributes(recipe_params)
 
     if @recipe.update_attributes(recipe_params)
       flash[:notice] = "Recipe updated!"
@@ -60,7 +60,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:title, :body)
+    params.require(:recipe).permit(:title, :body, :bootsy_image_gallery_id)
   end
 
 end

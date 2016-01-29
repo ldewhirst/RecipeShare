@@ -1,4 +1,6 @@
 class Recipe < ActiveRecord::Base
+  include Bootsy::Container
+
   belongs_to :user
   has_many :comments, dependent: :destroy
 
