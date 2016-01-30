@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
          :omniauth_providers => [:facebook]
 
   has_many :recipes
+  has_many :comments
+  has_many :likes, dependent: :destroy
 
   before_save { self.email = email.downcase }
   before_save { self.role ||= :member }
@@ -27,5 +29,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  def liked(recipe)
+    likes.where(recipe_id: recipe.id).first
+  end
 
 end

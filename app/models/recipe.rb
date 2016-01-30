@@ -3,6 +3,7 @@ class Recipe < ActiveRecord::Base
 
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
 
   validates :title, length: { minimum: 5 }, presence: true

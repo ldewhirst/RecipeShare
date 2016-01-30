@@ -1,19 +1,32 @@
-<!DOCTYPE html>
-<html>
-<body>
-  <h1><%= @recipe.title %></h1>
-
-<div class="row">
-  <div class="col-md-8">
+<div class="container">
+  <div class="row row-centered">
+    <div class="col-md-6 col-md-offset-3">
+  <h2><%= @recipe.title %></h2></br>
     <p><%= @recipe.body.html_safe %></p>
+  </br></br>
     <% if current_user || current_user.admin? %>
       <%= link_to "Edit", edit_recipe_path(@recipe), class: 'btn btn-success' %>
       <%= link_to "Delete", @recipe, method: :delete, class: 'btn btn-danger' %>
     <% end %>
-  </div>
-</div>
+  </br>
+
 <small>
   submitted <%= time_ago_in_words(@recipe.created_at) %> ago by <%= @recipe.user.email %>
 </small>
-</body>
-</html>
+
+<br>
+<br>
+<% if current_user %>
+  <%= render partial: 'likes/like', locals: { recipe: @recipe } %>
+<% end %>
+<div>
+  <h3>Comments</h3>
+  <%= render @recipe.comments %>
+</div>
+
+  <% if current_user %>
+    <%= render 'comments/form', comment: Comment.new, recipe: @recipe %>
+  <% end %>
+</div>
+</div>
+</div>

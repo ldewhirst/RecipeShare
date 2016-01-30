@@ -1,0 +1,11 @@
+<div class="like">
+  <% if like = current_user.liked(recipe) %>
+    <%= link_to [recipe, like], class: 'btn btn-danger', method: :destroy do %>
+      <i class="glyphicon glyphicon-star"> </i>&nbsp; Unlike
+    <% end %>
+  <% else %>
+    <%= link_to [recipe, Like.new], class: 'btn btn-primary', method: :post do %>
+      <i class="glyphicon glyphicon-star"> </i>&nbsp; Like
+    <% end %>
+  <% end %>
+</div>
