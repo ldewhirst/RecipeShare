@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :recipes
   has_many :comments
   has_many :likes, dependent: :destroy
+  has_many :liked_recipes, through: :likes, source: :recipe
 
   before_save { self.email = email.downcase }
   before_save { self.role ||= :member }

@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row row-centered">
+    <div class="col-md-6 col-md-offset-4">
+      <h1>My Recipes</h1>
+    </div>
+  </div>
+</div>
+  <div class="row masonry-container margin">
+      <% @user_recipes.each do |recipe| %>
+      <div class="box col-md-4">
+        <div class="caption">
+            <%= link_to recipe.title, recipe_path %>
+          </div>
+        </div>
+    </div>
+      <% end %>
+  </div>
+<div class="grid-item--width2">
+</div>
+<div class="container">
+  <div class="row row-centered">
+    <div class="col-md-6 col-md-offset-4">
+      <h1>Liked Recipes</h1>
+      <div class="row masonry-container margin">
+          <% @liked_recipes.each do |recipe| %>
+          <div class="box col-md-6">
+            <div class="caption">
+                <%= link_to recipe.title, recipe_path %>
+            </div>
+            <%= render partial: 'likes/like', locals: { recipe: recipe } %></br>
+            </div>
+        </div>
+          <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>
