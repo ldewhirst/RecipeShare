@@ -3,6 +3,11 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.all.order_by_recently_created
+    if params[:tag].present?
+      @recipes = Recipe.tagged_with(params[:tag])
+    else
+      @recipes = Recipe.all
+    end
   end
 
   def show
@@ -60,7 +65,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:title, :body, :bootsy_image_gallery_id)
+    params.require(:recipe).permit(:title, :body, :bootsy_image_gallery_id, :tag_list)
   end
 
 end

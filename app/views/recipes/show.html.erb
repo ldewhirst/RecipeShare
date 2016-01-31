@@ -19,6 +19,7 @@
 <% if current_user %>
   <%= render partial: 'likes/like', locals: { recipe: @recipe } %>
 <% end %>
+<p> Tags: <%= raw @recipe.tag_list.map { |t| link_to t, tag_path(t) }.join(", ") %> </p>
 <div>
   <h3>Comments</h3>
   <%= render @recipe.comments %>
