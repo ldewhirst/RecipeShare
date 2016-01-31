@@ -5,7 +5,8 @@ class Recipe < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 
-  acts_as_taggable_on :tags
+  acts_as_taggable
+  
 
   validates :title, length: { minimum: 5 }, presence: true
   validates :body, length: { minimum: 20 }, presence: true
