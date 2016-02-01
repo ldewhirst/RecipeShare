@@ -32,6 +32,8 @@ gem 'figaro', '1.0'
 gem 'simple_form'
 gem 'bootsy'
 gem 'acts-as-taggable-on', '~> 3.4'
+gem 'carrierwave'
+gem 'rmagick'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

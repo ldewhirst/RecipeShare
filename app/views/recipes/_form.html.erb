@@ -19,6 +19,7 @@
     <%= f.label :body, "Recipe" %>
     <%= f.bootsy_area :body, cols: "100", rows: "20"%>
   </div>
+    <%= f.file_field :image %>
     <%= f.label :tag_list, "Tags (separated by commas)" %>
     <%= f.text_field :tag_list %>
     <%= f.submit "Save Recipe", class: 'btn btn-success' %>

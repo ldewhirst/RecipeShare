@@ -6,7 +6,8 @@ class Recipe < ActiveRecord::Base
   has_many :likes, dependent: :destroy
 
   acts_as_taggable
-  
+
+  mount_uploader :image, ImageUploader
 
   validates :title, length: { minimum: 5 }, presence: true
   validates :body, length: { minimum: 20 }, presence: true

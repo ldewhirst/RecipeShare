@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160130225840) do
+ActiveRecord::Schema.define(version: 20160131192156) do
 
   create_table "bootsy_image_galleries", force: :cascade do |t|
     t.integer  "bootsy_resource_id"
@@ -67,6 +67,9 @@ ActiveRecord::Schema.define(version: 20160130225840) do
     t.datetime "updated_at",    null: false
     t.integer  "user_id"
     t.integer  "ingredient_id"
+    t.string   "recipe_image"
+    t.string   "recipeimage"
+    t.string   "image"
   end
 
   add_index "recipes", ["ingredient_id"], name: "index_recipes_on_ingredient_id"
