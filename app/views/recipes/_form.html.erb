@@ -17,7 +17,7 @@
 
   <div class="field">
     <%= f.label :body, "Recipe" %>
-    <%= f.bootsy_area :body, cols: "100", rows: "20"%>
+    <%= f.bootsy_area :body, cols: "100", rows: "20", editor_options: { image: false, color: false } %>
   </div>
     <%= f.file_field :image %>
     <%= f.label :tag_list, "Tags (separated by commas)" %>
