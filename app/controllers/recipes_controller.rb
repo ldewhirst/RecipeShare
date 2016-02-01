@@ -2,7 +2,6 @@ class RecipesController < ApplicationController
   before_action :require_sign_in, except: [:index, :show]
 
   def index
-    @recipes = Recipe.all.order_by_recently_created
     if params[:tag].present?
       @recipes = Recipe.tagged_with(params[:tag])
     else

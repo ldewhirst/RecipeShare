@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
   end
 
-  resources :tags, only: [:index, :show]
+  get 'tags/:tag', to: 'recipes#index', as: :tag
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users, only: :show

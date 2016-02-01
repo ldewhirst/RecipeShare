@@ -13,6 +13,7 @@
     <small>
       submitted <%= time_ago_in_words(@recipe.created_at) %> ago by <%= @recipe.user.email %>
     </small>
+    <p>
     <p> Tags: <%= raw @recipe.tag_list.map { |t| link_to t, tag_path(t) }.join(", ") %> </p>
       <br>
       <br>

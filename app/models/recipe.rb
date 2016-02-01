@@ -6,6 +6,7 @@ class Recipe < ActiveRecord::Base
   has_many :likes, dependent: :destroy
 
   acts_as_taggable
+  acts_as_taggable_on :tags
 
   mount_uploader :image, ImageUploader
 
