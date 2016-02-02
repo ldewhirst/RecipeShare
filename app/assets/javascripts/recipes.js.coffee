@@ -1,0 +1,15 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+
+$ ->
+  $('#recipes').imagesLoaded ->
+    $('#recipes').masonry
+      itemSelector: '.box'
+      isFitWidth: true
+
+ container.masonry({
+   gutter: gutter,
+   itemSelector: '.recipe',
+   columnWidth: '.recipe'
+ });

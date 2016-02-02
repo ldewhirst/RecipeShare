@@ -1,9 +1,15 @@
 <div class="container">
   <div class="row row-centered">
     <div class="col-md-6 col-md-offset-3">
-  <h2><%= @recipe.title %></h2></br>
-  <%= image_tag @recipe.image_url(:medium).to_s if @recipe.image_url.present? %>
-    <p><%= @recipe.body.html_safe %></p>
+      <h2><%= @recipe.title %></h2>
+      <hr>
+      <%= image_tag @recipe.image_url(:medium).to_s if @recipe.image_url.present? %>
+      <hr>
+        <h4>Ingredients:</h4>
+          <p><%= @recipe.ingredients.html_safe %></p>
+        <h4>Instructions:</h4>
+          <p><%= @recipe.body.html_safe %></p>
+          <small>Recipe from: <%= @recipe.source %></small>
   </br></br>
     <% if current_user || current_user.admin? %>
       <%= link_to "Edit", edit_recipe_path(@recipe), class: 'btn btn-success' %>

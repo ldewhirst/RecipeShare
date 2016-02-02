@@ -1,18 +1,27 @@
+<header id="header" class="container">
+  <h1>All Recipes</h1>
+  <hr>
+</header>
 
-<h1>All Recipes</h1>
-
-<% @recipes.each do |recipe| %>
-  <div class="media">
-    <div class="media-body">
-      <p><%= image_tag recipe.image_url(:thumb) %></p>
-      <h4 class="media-heading">
-        <%= link_to recipe.title, recipe %>
-      </h4>
-
+<div class="container" id="grid">
+  <div id="recipes">
+    <div class="recipe">
+      <% @recipes.each do |recipe| %>
+        <div class="box col-md-3 col-sm-2">
+          <div class="media-body">
+            <p><%= image_tag recipe.image_url(:thumb) %></p>
+              <h4 class="media-heading">
+                <%= link_to recipe.title, recipe %>
+              </h4>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
-<% end %>
+</div>
 
+    <div class="row row-centered">
+      <div class="col-md-6 col-md-offset-4">
 <% if current_user %>
 <%= link_to "New Recipe", new_recipe_path, class: 'btn btn-default' %>
 <% end %>
@@ -21,4 +30,7 @@
   <% tag_cloud Recipe.tag_counts, %w[s m l] do |tag, css_class| %>
     <%= link_to tag.name, tag_path(tag.name), class: css_class %>
   <% end %>
+</div>
+
+</div>
 </div>
