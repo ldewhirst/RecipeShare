@@ -1,18 +1,14 @@
 <header id="header">
-  <h1>All Recipes</h1>
-  <hr>
+  <h1 class="col-md-4 col-md-offset-4">All Recipes</h1>
 </header>
 
 <div class="row masonry-container margin">
       <% @recipes.each do |recipe| %>
-      <div class="col-md-4">
-          <div class="thumbnail">
+      <div class="thumbnail col-md-4">
             <p><%= image_tag recipe.image_url(:thumb) %></p>
-                <%= link_to recipe.title, recipe %>
+            <p><%= link_to recipe.title, recipe %></p>
               </div>
-            </div>
       <% end %>
-
 </div>
 
     <div class="row row-centered">

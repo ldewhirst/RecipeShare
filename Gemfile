@@ -31,7 +31,7 @@ gem 'omniauth-facebook'
 gem 'figaro', '1.0'
 gem 'simple_form'
 gem 'bootsy'
-gem 'acts-as-taggable-on', '~> 3.4'
+gem 'acts-as-taggable-on'
 gem 'carrierwave'
 gem 'rmagick'
 # Use SCSS for stylesheets

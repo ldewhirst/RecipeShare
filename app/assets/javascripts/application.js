@@ -21,7 +21,6 @@
 //= require masonry/box-maker
 //= require turbolinks
 //= require bootstrap
-//= require_tree .
 
 var msnry = new Masonry( '.grid', {
   columnWidth: 200,
