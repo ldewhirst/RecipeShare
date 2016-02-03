@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+#
+# tags = %w[salad dinner chicken pasta vegetarian meat]
+#
+# 50.times do
+#   Recipe.create(
+#   title= Faker::Lorem
+#   )
+#
+#
+# end
