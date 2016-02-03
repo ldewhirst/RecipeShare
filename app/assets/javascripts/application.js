@@ -22,3 +22,12 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+
+var msnry = new Masonry( '.grid', {
+  columnWidth: 200,
+  itemSelector: '.grid-item'
+});
+
+.grid-sizer,
+.grid-item { width: 20%; }
+.grid-item--width2 { width: 40%; }

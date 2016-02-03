@@ -12,14 +12,13 @@
 @import 'masonry/transitions';
 @import "bootsy";
 
-.form-box {
-  border-style: groove;
-  border-width: 3px;
-  border-color: #777777;  
-}
 
 .grid-item { width: 20%; }
 .grid-item--width2 { width: 40%; }
+
+* {
+  @include box-sizing(border-box);
+}
 
 $pad: 20px;
 
@@ -28,9 +27,18 @@ $pad: 20px;
   margin: 0 0 $pad 0;
 
   &:after {
+    /* Or @extend clearfix */
     content: "";
     display: table;
     clear: both;
+  }
+}
+
+[class*='col-'] {
+  float: left;
+  padding-right: $pad;
+  .grid &:last-of-type {
+    padding-right: 0;
   }
 }
 
