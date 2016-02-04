@@ -11,8 +11,15 @@
   .l { font-size: 1.8em; }
 }
 
+#container {
+  margin: 0 auto;
+}
 
-.thumbnail img
-{
-    width: 100%;
+.box {
+  margin: 5px;
+  width: 214px;
+}
+
+.box img {
+  width: 100%;
 }

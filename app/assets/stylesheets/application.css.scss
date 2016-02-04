@@ -13,23 +13,15 @@
 @import "bootsy";
 
 
-.grid-item {
-  float: left;
-  width: 80px;
-  height: 60px;
-  border: 2px solid hsla(0, 0%, 0%, 0.5);
-  margin-bottom: 10px;
-}
-
-#content {
+#container {
   margin: 0 auto;
-  width: auto;
 }
 
-.item {
-  -webkit-transition: left .4s ease-in-out, top .4s ease-in-out .4s;
-  -moz-transition: left .4s ease-in-out, top .4s ease-in-out .4s;
-  -ms-transition: left .4s ease-in-out, top .4s ease-in-out .4s;
-  -o-transition: left .4s ease-in-out, top .4s ease-in-out .4s;
-  transition: left .4s ease-in-out, top .4s ease-in-out .4s;
+.box {
+  margin: 5px;
+  width: 214px;
+}
+
+.box img {
+  width: 100%;
 }

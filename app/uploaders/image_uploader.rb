@@ -18,7 +18,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-    ActionController::Base.helpers.asset_path("placeholder_2.jpg")
+    # ActionController::Base.helpers.asset_path("placeholder_2.jpg")
     # "/images/fallback/" + [thumb, "http://www.aboveandbeyondny.com/sitebuilder/images/Light-Grey-Square-280x261.jpg"].compact.join('_')
   end
 

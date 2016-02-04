@@ -34,6 +34,7 @@ gem 'bootsy'
 gem 'acts-as-taggable-on'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'execjs'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -46,6 +47,7 @@ gem 'bcrypt'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-turbolinks'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
