@@ -2,8 +2,8 @@ class LikesController < ApplicationController
   before_action :require_sign_in
 
   def create
-    recipe = Recipe.find(params[:recipe_id])
-    like = current_user.likes.build(recipe: recipe)
+    @recipe = Recipe.find(params[:recipe_id])
+    like = current_user.likes.build(recipe: @recipe)
 
     if like.save
       flash[:notice] = "Recipe liked!"
@@ -15,10 +15,10 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    recipe = Recipe.find(params[:recipe_id])
+    @recipe = Recipe.find(params[:recipe_id])
     like = @recipe.likes.find(params[:id])
 
-    if favorite.destroy
+    if like.destroy
       flash[:notice] = "Recipe unliked!"
       redirect_to @recipe
     else

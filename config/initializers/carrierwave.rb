@@ -1,10 +1,9 @@
 CarrierWave.configure do |config|
   config.fog_credentials = {
     provider:             'AWS',
-    aws_access_key_id:     ENV['AWS_ID'],
-    aws_secret_access_key: ENV['AWS_SECRET'],
+    aws_access_key_id:     ENV['AMAZON_KEY'],
+    aws_secret_access_key: ENV['AMAZON_SECRET'],
     region:                'us-east-1',
   }
-  config.fog_directory = '/public/images/fog'
-  config.fog_public    = false
+  config.fog_directory = ENV['AMAZON_BUCKET']
 end
