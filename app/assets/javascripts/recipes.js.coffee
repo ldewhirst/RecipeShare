@@ -8,3 +8,4 @@ $ ->
     $('#container').masonry
       itemSelector: '.box'
       isFitWidth: true
+      columnWidth: 215

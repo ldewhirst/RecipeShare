@@ -17,9 +17,13 @@
 
 .box {
   margin: 5px;
-  width: 214px;
+  max-width: 215px;
 }
 
 .box img {
   width: 100%;
+}
+
+.panel-body {
+  max-width: 215px;
 }

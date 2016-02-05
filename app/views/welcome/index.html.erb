@@ -1,2 +1,28 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="text-center"> RecipeShare </h1>
+    <p class="text-center"> Your social sharing recipe book.</p>
+  </div>
+</div>
+
+  <div class="row">
+    <div class="col-md-3 col-md-offset-1">
+      <div class="well well-lg">
+        <p>Featured</p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="well well-lg">
+        <h4 class="text-center"><br> Find & share the best recipes,<br> all in one place.</h4><br>
+        <p class="text-center"><%= link_to "Register", new_user_registration_path, class: 'btn btn-primary'%>
+              or <%= link_to "Sign In", new_user_registration_path, class: 'btn btn-primary' %> </p>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="well well-lg">
+        <p>Learn More</p>
+      </div>
+    </div>
+  </div>

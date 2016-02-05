@@ -24,18 +24,18 @@
     <%= f.bootsy_area :ingredients, cols: "50", rows: "20", editor_options: { image: false, color: false } %>
 </div>
 <div class="col-md-6">
-    <%= f.label :body, "Recipe:" %>
+    <%= f.label :body, "Recipe Instructions:" %>
     <%= f.bootsy_area :body, cols: "100", rows: "20", editor_options: { image: false, color: false } %>
 </div>
 </div>
 <div class="form-group row">
-  <div class="field cold-md-4">
+  <div class="field cold-md-6">
     <%= f.label :source, "Recipe Source:" %>
     <%=f.text_field :source %>
   </div>
 </div>
 <div class="form-group row">
-  <div class="field col-md-4">
+  <div class="field col-md-6">
     <%= f.label :image, "Upload Image:" %>
     <%= f.file_field :image %>
   </div>
@@ -44,8 +44,8 @@
   <div class-"field col-md-6">
     <%= f.label :tag_list, "Tags (separated by commas)" %>
     <%= f.text_field :tag_list %>
-  </div>
-    <%= f.submit "Save Recipe", class: 'btn btn-success' %>
+  </div><br>
+    <%= f.submit "Save Recipe", class: 'btn btn-info' %>
   </div>
 </div>
 <% end %>

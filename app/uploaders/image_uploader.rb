@@ -7,8 +7,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
-  # storage :fog
+  storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -18,7 +17,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-    # ActionController::Base.helpers.asset_path("placeholder_2.jpg")
+    ActionController::Base.helpers.asset_path("images.jpg")
     # "/images/fallback/" + [thumb, "http://www.aboveandbeyondny.com/sitebuilder/images/Light-Grey-Square-280x261.jpg"].compact.join('_')
   end
 
@@ -31,7 +30,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :resize_to_fill => [150, 150]
+    process :resize_to_fill => [200, 200]
   end
 
   version :medium do
