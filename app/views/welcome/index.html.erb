@@ -9,6 +9,13 @@
     <div class="col-md-3 col-md-offset-1">
       <div class="well well-lg">
         <p>Featured</p>
+        <div class="panel-body text-wrap">
+          <%= link_to @recipe.title, @recipe %>
+        </div>
+        <div class="thumb">
+          <%= image_tag(@recipe.image_url(:thumb)) %>
+        </div>
+        <p> <%= truncate(@recipe.body, :escape => false, :length => 100) %></p>
       </div>
     </div>
 
