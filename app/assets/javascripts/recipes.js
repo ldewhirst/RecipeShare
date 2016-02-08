@@ -3,9 +3,13 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 
-$ ->
-  $('#container').imagesLoaded ->
-    $('#container').masonry
-      itemSelector: '.box'
-      isFitWidth: true
-      columnWidth: 215
+
+var $container = $('#container');
+
+$container.imagesLoaded( function(){
+  $container.masonry({
+    itemSelector : '.box';
+    isFitWidth: true;
+    columnWidth: 215;
+  });
+});
