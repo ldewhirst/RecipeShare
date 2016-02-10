@@ -28,3 +28,5 @@ class SocializationsController < ApplicationController
       end
     raise ActiveRecord::RecordNotFound unless @socializable
   end
+
+end
