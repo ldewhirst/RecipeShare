@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160210125423) do
+ActiveRecord::Schema.define(version: 20160210133644) do
 
   create_table "bootsy_image_galleries", force: :cascade do |t|
     t.integer  "bootsy_resource_id"
@@ -51,14 +51,15 @@ ActiveRecord::Schema.define(version: 20160210125423) do
   add_index "follows", ["follower_id", "follower_type"], name: "fk_follows"
 
   create_table "likes", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "recipe_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "liker_type"
+    t.integer  "liker_id"
+    t.string   "likeable_type"
+    t.integer  "likeable_id"
+    t.datetime "created_at"
   end
 
-  add_index "likes", ["recipe_id"], name: "index_likes_on_recipe_id"
-  add_index "likes", ["user_id"], name: "index_likes_on_user_id"
+  add_index "likes", ["likeable_id", "likeable_type"], name: "fk_likeables"
+  add_index "likes", ["liker_id", "liker_type"], name: "fk_likes"
 
   create_table "mentions", force: :cascade do |t|
     t.string   "mentioner_type"
@@ -75,11 +76,12 @@ ActiveRecord::Schema.define(version: 20160210125423) do
     t.string   "title"
     t.text     "ingredients"
     t.text     "body"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "user_id"
     t.string   "source"
     t.string   "image"
+    t.integer  "likers_count"
   end
 
   add_index "recipes", ["user_id"], name: "index_recipes_on_user_id"

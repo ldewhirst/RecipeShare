@@ -1,6 +1,2 @@
-class Like < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :recipe
-
-  
+class Like < Socialization::ActiveRecordStores::Like
 end

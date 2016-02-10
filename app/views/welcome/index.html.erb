@@ -28,7 +28,10 @@
 
     <div class="col-md-3">
       <div class="well well-lg">
-        <p>Learn More</p>
+        <p>Popular Recipe</p>
+          <%= link_to @most_liked.title, @most_liked %>
+          <%= image_tag(@most_liked.image_url(:thumb)) %>
+
       </div>
     </div>
   </div>
