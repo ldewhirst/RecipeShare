@@ -10,6 +10,11 @@ class User < ActiveRecord::Base
   has_many :likes, dependent: :destroy
   has_many :liked_recipes, through: :likes, source: :recipe
 
+  acts_as_followable
+  acts_as_follower
+  acts_as_liker
+  acts_as_mentionable
+
   before_save { self.email = email.downcase }
   before_save { self.role ||= :member }
 

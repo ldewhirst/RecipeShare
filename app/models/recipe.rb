@@ -8,6 +8,8 @@ class Recipe < ActiveRecord::Base
   acts_as_taggable
   acts_as_taggable_on :tags
 
+  acts_as_likeable
+
   mount_uploader :image, ImageUploader
 
   validates :title, length: { minimum: 5 }, presence: true

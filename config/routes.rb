@@ -9,13 +9,17 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'recipes#index', as: :tag
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  resources :users, only: :show
+  resources :users, only: :show do
+    post 'follow', to: 'socializatons#follow'
+    post 'unfollow', to: 'socializations#unfollow'
+  end
 
   get 'users/show'
 
   get 'about' => 'welcome#about'
 
   root 'welcome#index'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
