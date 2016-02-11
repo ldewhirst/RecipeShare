@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'recipes#index', as: :tag
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  
   resources :users, only: :show do
     post 'follow', to: 'socializatons#follow'
     post 'unfollow', to: 'socializations#unfollow'
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
 
   get 'users/show'
 
-    get 'about' => 'welcome#about'
+  get 'about' => 'welcome#about'
 
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
 

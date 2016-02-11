@@ -9,22 +9,21 @@ class LikesController < ApplicationController
       flash[:notice] = "Recipe liked!"
       redirect_to @recipe
     else
-      flash[:alert] = "Error! Please try agian."
+      flash[:alert] = "Error! Please try again!"
       redirect_to @recipe
     end
   end
 
   def destroy
+    like = Like.find(params[:id])
     @recipe = Recipe.find(params[:recipe_id])
-    like = @recipe.likes.find(params[:id])
 
     if like.destroy
-      flash[:notice] = "Recipe unliked!"
+      flash[:notice] = "Recipe unliked"
       redirect_to @recipe
     else
-      flash[:alert] = "Error! Please try again."
+      flash[:alert] = "Error! Please try again"
       redirect_to @recipe
     end
   end
-
 end
