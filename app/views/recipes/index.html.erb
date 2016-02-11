@@ -40,9 +40,11 @@
   </div>
   <div>
     <br><br><br>
+    <div class="footer">
     <div id="tag_cloud" class="col-md-11">
-      <% tag_cloud Recipe.tag_counts, %w[s m l] do |tag, css_class| %>
+      <p> <strong>Tags:</strong> <% tag_cloud Recipe.tag_counts, %w[s m l] do |tag, css_class| %>
         <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-        <% end %>
+        <% end %></p>
     </div>
+  </div>
   </body>

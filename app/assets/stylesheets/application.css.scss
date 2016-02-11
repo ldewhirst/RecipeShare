@@ -34,3 +34,22 @@
 .margin {
     margin: 0 auto;
 }
+
+.center-text {
+  text-align: center;
+}
+
+.well-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+}
