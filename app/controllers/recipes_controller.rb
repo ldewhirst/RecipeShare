@@ -11,11 +11,7 @@ class RecipesController < ApplicationController
       @recipes = Recipe.all
     end
 
-    if params[:search]
-      @recipes = Recipe.search(params[:search]).order_by_recently_created
-    else
-      @recipes = Recipe.order_by_recently_created
-    end
+
   end
 
   def show

@@ -21,8 +21,11 @@ class Recipe < ActiveRecord::Base
 
 
   def self.search(search)
-    where("tag LIKE ?", "%#{search}%")
-    where("title LIKE ?", "%#{search}%")
-
+    if search
+      find(:all, :conditions => ['tag LIKE ?', '%#{search}%'])
+      find(:all, :conditions => ['title LIKE ?', '%#{search}%'])
+    else
+      find(:all)
+    end
   end
 end
