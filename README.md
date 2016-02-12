@@ -1,28 +1,18 @@
-== README
+== **RecipeShare**
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An app that lets users share their own recipes, browse other user's recipes, and
+save favorites to their account.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+By adding tags to recipes, users are able to quickly sort through to find a recipe
+that suits their needs.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+#### **Features to Implement**
+
+* Public user profiles
+    * Allow users to view the profile of other users, accessing an index of each user's
+    added recipes
+* Follow/Unfollow users
+    * Allow users to follow one another in order to receive updates of added recipes.
+* Mentioning
+    * Allow users to mention other users in comments to recommend a certain recipe.
