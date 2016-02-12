@@ -5,38 +5,38 @@
   </div>
 </div>
 
-  <div class="row">
-    <div class="col-md-3 col-md-offset-1">
-      <div class="well well-lg">
-        <h4 class="center-text"><strong>Featured</strong></h4>
-        <div class="panel-body text-wrap center-text">
-          <%= link_to @recipe.title, @recipe %>
-        </div>
-        <div class="thumb well-img">
-          <%= image_tag(@recipe.image_url(:thumb)) %>
-        </div>
+<div class="row">
+  <div class="col-md-3 col-md-offset-1">
+    <div class="well well-lg">
+      <h4 class="center-text"><strong>Featured</strong></p>
+      <div class="panel-body text-wrap center-text">
+        <%= link_to @recipe.title, @recipe %>
+      </div>
+      <div class="thumb well-img">
+        <%= image_tag(@recipe.image_url(:thumb)) %>
       </div>
     </div>
+  </div>
 
-    <div class="col-md-4">
-      <div class="well well-lg">
-        <h4 class="text-center"><br> Find & share the best recipes,<br> all in one place.</h4><br>
-        <% unless current_user %>
-          <p class="text-center"><%= link_to "Register", new_user_registration_path, class: 'btn btn-primary'%>
-              or <%= link_to "Sign In", new_user_registration_path, class: 'btn btn-primary' %> </p>
-        <% end %>
-      </div>
+  <div class="col-md-4">
+    <div class="well well-lg">
+      <h4 class="text-center"><br> Find & share the best recipes,<br> all in one place.</h4><br>
+      <% unless current_user %>
+        <p class="text-center"><%= link_to "Register", new_user_registration_path, class: 'btn btn-primary'%>
+            or <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary' %> </p>
+      <% end %>
     </div>
+  </div>
 
-    <div class="col-md-3">
-      <div class="well well-lg">
-        <h4 class="center-text"><strong>Popular</strong></h4>
-        <div class="panel-body text-wrap center-text">
-          <%= link_to @most_liked.title, @most_liked %>
-        </div>
-        <div class="thumb well-img">
-          <%= image_tag(@most_liked.image_url(:thumb)) %>
-        </div>
+  <div class="col-md-3">
+    <div class="well well-lg">
+      <h4 class="center-text"><strong>Popular</strong></h4>
+      <div class="panel-body text-wrap center-text">
+        <%= link_to @most_liked.title, @most_liked %>
+      </div>
+      <div class="thumb well-img">
+        <%= image_tag(@most_liked.image_url(:thumb)) %>
       </div>
     </div>
+  </div>
   </div>

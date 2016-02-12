@@ -2,7 +2,7 @@
   <div class="row row-centered">
     <div class="col-md-6 col-md-offset-3">
       <h2><%= @recipe.title %></h2>
-      <hr>cd
+      <hr>
       <%= image_tag @recipe.image_url(:medium).to_s if @recipe.image_url.present? %>
       <hr>
         <h4>Ingredients:</h4>
@@ -17,7 +17,7 @@
     <% end %>
   </br>
     <small>
-      submitted <%= time_ago_in_words(@recipe.created_at) %> ago by <%= @recipe.user.email %>
+      submitted <%= time_ago_in_words(@recipe.created_at) %> ago by <%= link_to @recipe.user.email, users_show_path(id: @recipe.user_id) %>
     </small>
     <p>
     <p> Tags: <%= raw @recipe.tag_list.map { |t| link_to t, tag_path(t) }.join(", ") %> </p>

@@ -5,8 +5,16 @@ class RecipesController < ApplicationController
     Recipe.all.order_by_recently_created
     if params[:tag].present?
       @recipes = Recipe.tagged_with(params[:tag])
+    elsif params[:user_id]
+      @recipes = User.find(params[:user_id]).recipes
     else
       @recipes = Recipe.all
+    end
+
+    if params[:search]
+      @recipes = Recipe.search(params[:search]).order_by_recently_created
+    else
+      @recipes = Recipe.order_by_recently_created
     end
   end
 
@@ -67,7 +75,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:title, :body, :bootsy_image_gallery_id, :tag_list, :image, :source, :ingredients)
+    params.require(:recipe).permit(:title, :body, :bootsy_image_gallery_id, :tag_list, :image, :source, :ingredients, :user_id)
   end
 
 end

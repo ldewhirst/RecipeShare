@@ -19,4 +19,10 @@ class Recipe < ActiveRecord::Base
 
   scope :order_by_recently_created, -> { order(created_at: :desc) }
 
+
+  def self.search(search)
+    where("tag LIKE ?", "%#{search}%")
+    where("title LIKE ?", "%#{search}%")
+
+  end
 end

@@ -9,13 +9,15 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'recipes#index', as: :tag
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  
+
   resources :users, only: :show do
     post 'follow', to: 'socializatons#follow'
     post 'unfollow', to: 'socializations#unfollow'
   end
 
   get 'users/show'
+
+  get 'users/:id' => 'users#show', as: "user_profile"
 
   get 'about' => 'welcome#about'
 

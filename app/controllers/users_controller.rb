@@ -5,4 +5,5 @@ class UsersController < ApplicationController
     @user_recipes = current_user.recipes
     @liked_recipes = current_user.liked_recipes
   end
+
 end
