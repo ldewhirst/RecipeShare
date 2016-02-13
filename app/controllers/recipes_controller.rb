@@ -2,13 +2,14 @@ class RecipesController < ApplicationController
   before_action :require_sign_in, except: [:index, :show]
 
   def index
+
+    Recipe.all.order_by_recently_created
+
     if params[:search]
       @recipes = Recipe.search(params[:search])
     else
       @recipes = Recipe.order_by_recently_created
     end
-
-    # Recipe.all.order_by_recently_created - not storing to database
 
     if params[:tag].present?
       @recipes = Recipe.tagged_with(params[:tag])

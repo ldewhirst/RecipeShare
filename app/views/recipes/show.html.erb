@@ -17,7 +17,7 @@
     <% end %>
   </br>
     <small>
-      submitted <%= time_ago_in_words(@recipe.created_at) %> ago by <%= link_to @recipe.user.email, users_show_path(id: @recipe.user_id) %>
+      submitted <%= time_ago_in_words(@recipe.created_at) %> ago by <%= link_to @recipe.user.name, users_show_path(id: @recipe.user_id) %>
     </small>
     <p>
     <p> Tags: <%= raw @recipe.tag_list.map { |t| link_to t, tag_path(t) }.join(", ") %> </p>
