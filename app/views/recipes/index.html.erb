@@ -3,9 +3,6 @@
     <%= link_to "New Recipe", new_recipe_path, class: 'btn btn-default col-sm-offset-1' %>
   <% end %>
 </header>
-
-
-
 <body>
   <h1 class="col-md-4 col-md-offset-5">Recipes</h1>
 
@@ -22,17 +19,6 @@
             </div>
             <div class="panel-body text-wrap">
               <%= link_to recipe.title, recipe %>
-            </div>
-            <div class="like">
-              <% if like = current_user.liked(recipe) %>
-                <%= link_to [recipe, like], method: :delete do %>
-                  <i class="glyphicon glyphicon-heart"> </i>
-                <% end %>
-              <% else %>
-                <%= link_to [recipe, Like.new], method: :post do %>
-                  <i class="glyphicon glyphicon-heart"> </i>
-                <% end %>
-              <% end %>
             </div>
           </div>
           <div>
