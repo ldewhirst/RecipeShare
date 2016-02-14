@@ -16,7 +16,9 @@ Rails.application.routes.draw do
 
   get 'users/show'
 
-    get 'about' => 'welcome#about'
+  get 'about' => 'welcome#about'
+
+  get 'search', to: 'searches#show'
 
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
 

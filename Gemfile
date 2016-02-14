@@ -15,6 +15,8 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'pry-rails'
+  gem 'quiet_assets'
 end
 
 gem 'acts-as-taggable-on'
@@ -42,3 +44,4 @@ gem 'simple_form'
 gem 'socialization'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'ransack'
