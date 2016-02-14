@@ -11,13 +11,13 @@
           <p><%= @recipe.body.html_safe %></p>
           <small>Recipe from: <%= @recipe.source %></small>
   </br></br>
-    <% if current_user || current_user.admin? %>
+    <% if current_user %>
       <%= link_to "Edit", edit_recipe_path(@recipe), class: 'btn btn-success' %>
       <%= link_to "Delete", @recipe, method: :delete, class: 'btn btn-danger' %>
     <% end %>
   </br>
     <small>
-      submitted <%= time_ago_in_words(@recipe.created_at) %> ago by <%= link_to @recipe.user.email, users_show_path(id: @recipe.user_id) %>
+      submitted <%= time_ago_in_words(@recipe.created_at) %> ago by <%= link_to @recipe.user.name, users_show_path(id: @recipe.user_id) %>
     </small>
     <p>
     <p> Tags: <%= raw @recipe.tag_list.map { |t| link_to t, tag_path(t) }.join(", ") %> </p>

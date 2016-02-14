@@ -20,12 +20,16 @@ class Recipe < ActiveRecord::Base
   scope :order_by_recently_created, -> { order(created_at: :desc) }
 
 
-  def self.search(search)
-    if search
-      find(:all, :conditions => ['tag LIKE ?', '%#{search}%'])
-      find(:all, :conditions => ['title LIKE ?', '%#{search}%'])
-    else
-      find(:all)
-    end
+  def self.search(term)
+    search_term = "%#{term.downcase}%"
+    @recipe = Recipe.where('title LIKE lower(?) OR ingredients LIKE lower(?)', search_term, search_term) +
+      tagged_with(search_term)
   end
+  #   if search
+  #     find(:all, :conditions => ['tag LIKE ?', '%#{search}%'])
+  #     find(:all, :conditions => ['title LIKE ?', '%#{search}%'])
+  #   else
+  #     find(:all)
+  #   end
+  # end
 end

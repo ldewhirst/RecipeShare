@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   get 'about' => 'welcome#about'
 
+  get 'search' => 'searches#show'
+
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
 
 end
