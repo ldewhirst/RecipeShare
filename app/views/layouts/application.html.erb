@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,8 +53,13 @@
                 <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
               </ul>
               <% else %>
+<<<<<<< HEAD
                 <li class="active"><%= link_to 'Register', new_user_registration_path %></li>
                 <li class="active"><%= link_to 'Sign In', new_user_session_path %></li>
+=======
+                <li class="active"><a href="/users/sign_up">Register</a></li>
+                <li class="active"><a href="/users/sign_in">Sign In</a></li>
+>>>>>>> 55bfbdd977f1729ec9606f0f802fb4cdc24f6370
               <% end %>
           </ul>
         </div>
