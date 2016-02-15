@@ -26,4 +26,5 @@ class LikesController < ApplicationController
       redirect_to @recipe
     end
   end
+  
 end
