@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
+  get 'search' => 'search#index', as: :search
+  
   resources :users, only: :show do
     post 'follow', to: 'socializatons#follow'
     post 'unfollow', to: 'socializations#unfollow'
