@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  authenticated :user do
+    root 'recipes#index', as: :authenticated_root
+  end
+
   root 'welcome#index'
 
   resources :recipes do
@@ -17,9 +22,10 @@ Rails.application.routes.draw do
     post 'unfollow', to: 'socializations#unfollow'
   end
 
-  get 'users/show'
 
-  get 'users/:id' => 'users#show', as: "user_profile"
+  # not used?
+  # get 'users/show'
+  # get 'users/:id' => 'users#show', as: "user_profile"
 
   get 'about' => 'welcome#about'
 

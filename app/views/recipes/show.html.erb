@@ -1,40 +1,45 @@
 <div class="container">
   <div class="row row-centered">
     <div class="col-md-6 col-md-offset-3">
-      <h2><%= @recipe.title %></h2>
-      <hr>
-      <%= image_tag @recipe.image_url(:medium).to_s if @recipe.image_url.present? %>
-      <hr>
+
+      <section class="main">
+        <h2><%= @recipe.title %></h2>
+        <hr>
+        <%= image_tag @recipe.image_url(:medium).to_s if @recipe.image_url.present? %>
+        <hr>
         <h4>Ingredients:</h4>
-          <p><%= @recipe.ingredients.html_safe %></p>
+        <p><%= @recipe.ingredients.html_safe %></p>
         <h4>Instructions:</h4>
-          <p><%= @recipe.body.html_safe %></p>
-          <small>Recipe from: <%= @recipe.source %></small>
-  </br></br>
-    <% if current_user || current_user.admin? %>
-      <%= link_to "Edit", edit_recipe_path(@recipe), class: 'btn btn-success' %>
-      <%= link_to "Delete", @recipe, method: :delete, class: 'btn btn-danger' %>
-    <% end %>
-  </br>
-    <small>
-      submitted <%= time_ago_in_words(@recipe.created_at) %> ago by <%= link_to @recipe.user.email, users_show_path(id: @recipe.user_id) %>
-    </small>
-    <p>
-    <p> Tags: <%= raw @recipe.tag_list.map { |t| link_to t, tag_path(t) }.join(", ") %> </p>
-      <br>
-      <br>
-  <% if current_user %>
-    <%= render partial: 'likes/like', locals: { recipe: @recipe } %>
-  <% end %>
+        <p><%= @recipe.body.html_safe %></p>
+        <small>Recipe from: <%= @recipe.source %></small>
+      </section>
 
-  <div>
-    <h3>Comments</h3>
-    <%= render @recipe.comments %>
-  </div>
+      <aside class="user-account">
+        <% if current_user || current_user.admin? %>
+        <%= link_to "Edit", edit_recipe_path(@recipe), class: 'btn btn-success' %>
+        <%= link_to "Delete", @recipe, method: :delete, class: 'btn btn-danger' %>
+        <% end %>
+      </aside>
+      
+      <small>
+        submitted <%= time_ago_in_words(@recipe.created_at) %> ago by <%= link_to @recipe.user.email, users_show_path(id: @recipe.user_id) %>
+      </small>
+      <p> Tags: <%= raw @recipe.tag_list.map { |t| link_to t, tag_path(t) }.join(", ") %> </p>
 
-  <% if current_user %>
-    <%= render 'comments/form', comment: Comment.new, recipe: @recipe %>
-  <% end %>
+      <% if current_user %>
+        <section class="likes">
+           <%= render partial: 'likes/like', locals: { recipe: @recipe } %>
+        </section>
+      <% end %>
+
+      <section class="comments">
+        <h3>Comments</h3>
+        <%= render @recipe.comments %>
+        <% if current_user %>
+          <%= render 'comments/form', comment: Comment.new, recipe: @recipe %>
+        <% end %>
+      </section>
+
+    </div>
   </div>
- </div>
 </div>

@@ -35,8 +35,4 @@ class User < ActiveRecord::Base
     end
   end
 
-  def liked(recipe)
-    likes.where(recipe_id: recipe.id).first
-  end
-
 end

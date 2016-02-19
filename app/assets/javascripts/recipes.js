@@ -1,10 +1,9 @@
+var masonryContainer = $('#container');
 
-var $container = $('#container');
-
-$container.imagesLoaded( function(){
-  $container.masonry({
-    itemSelector: '.box';
-    isFitWidth: true;
-    columnWidth: 215;
+masonryContainer.imagesLoaded(function(){
+  masonryContainer.masonry({
+    itemSelector: '.box',
+    isFitWidth: true,
+    columnWidth: 215
   });
 });

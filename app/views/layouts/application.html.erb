@@ -37,7 +37,7 @@
                 aria-haspopup="true" aria-expanded="false">Welcome, <%= current_user.email %>!
               <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><%= link_to 'My RecipeShare', users_show_path %></li>
+                <li><%= link_to 'My RecipeShare', user_path(current_user) %></li>
                 <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
                 <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
               </ul>
@@ -50,14 +50,15 @@
       </div>
   </nav>
 
+  <% flash.each do |k,v| %>
+    <p class="flash bg-info"><%= v %></p>
+  <% end %>
+
+
   <div="container">
-  <div="row">
-    <%= yield %>
+    <div="row">
+      <%= yield %>
+    </div>
   </div>
-  </div>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
   </body>
 </html>

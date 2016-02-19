@@ -2,20 +2,11 @@ class RecipesController < ApplicationController
   before_action :require_sign_in, except: [:index, :show]
 
   def index
-    @recipes = Recipe.all.order_by_recently_created
-
-    if params[:search]
-      @recipes = Recipe.search(params[:search])
-    else
-      @recipes = Recipe.all
-    end
-
-    if params[:tag].present?
-      @recipes = Recipe.tagged_with(params[:tag])
-    elsif params[:user_id]
+    if params[:user_id].present?
       @recipes = User.find(params[:user_id]).recipes
     else
-      @recipes = Recipe.all
+      query = params[:search].presence || params[:tag].presence || '*'
+      @recipes = Recipe.search(query).order_by_recently_created
     end
   end
 
@@ -48,9 +39,8 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find(params[:id])
-    @recipe.assign_attributes(recipe_params)
-
-    if @recipe.update_attributes(recipe_params)
+    
+    if @recipe.update(recipe_params)
       flash[:notice] = "Recipe updated!"
       redirect_to @recipe
     else
@@ -70,8 +60,6 @@ class RecipesController < ApplicationController
       render :show
     end
   end
-
-
 
   private
 

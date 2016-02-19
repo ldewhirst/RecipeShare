@@ -19,12 +19,9 @@ class Recipe < ActiveRecord::Base
 
   scope :order_by_recently_created, -> { order(created_at: :desc) }
 
-
-  def self.search(term)
-    search_term = "%#{term.downcase}"
-
-    where('title LIKE ?', search_term)
-    where('body LIKE ?', search_term)
-    where(tagged_with(search_term))
+  def self.search(q)
+    query = "%#{q.downcase}"
+    where('lower(title) LIKE ? OR lower(body) LIKE ?', query, query)
+      .merge(where(tagged_with(query)))
   end
 end
